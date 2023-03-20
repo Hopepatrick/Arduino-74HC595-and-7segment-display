@@ -1,0 +1,132 @@
+/*The purpose of this sketch is to read numbers 0 to 9 and letters a to d on 7segment display from Serial monitor
+ * In this project we used 74HC595 ic shift register which is SIPO(Serial In Paraller Out)
+ * Created by patrick NDAYIKUNDA
+ * IPRC KIGALI/RWANDA 
+ */
+int latch = 12;
+int clockPin = 10;
+int dataPin = 11;
+byte myInfo;
+byte dataToDisplay = B11111110;
+byte myBinary[14] = {B11111110,B01100000,B11011010,
+                     B11110010,B01100110,B10110110,
+                     B10111110,B11100000,B11111110,
+                     B11110110,B11101110,B00111110,
+                     B10011100,B01111010};
+
+char myRead;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(latch,OUTPUT);
+  pinMode(clockPin,OUTPUT);
+  pinMode(dataPin,OUTPUT);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ 
+  if(Serial.available()>-1){
+    myRead = Serial.read();
+  }
+if(myRead=='0'){
+  myInfo = myBinary[0];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo ='\0';
+}
+else if(myRead=='1'){
+   myInfo = myBinary[1];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='2'){
+   myInfo = myBinary[2];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo ='\0';
+}
+else if(myRead=='3'){
+   myInfo = myBinary[3];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='4'){
+   myInfo = myBinary[4];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='5'){
+   myInfo = myBinary[5];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='6'){
+   myInfo = myBinary[6];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='7'){
+   myInfo = myBinary[7];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='8'){
+   myInfo = myBinary[8];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='9'){
+   myInfo = myBinary[9];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='a'){
+   myInfo = myBinary[10];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='b'){
+   myInfo = myBinary[11];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='c'){
+   myInfo = myBinary[12];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+else if(myRead=='d'){
+   myInfo = myBinary[13];
+  digitalWrite(latch,LOW);
+  shiftOut(dataPin,clockPin,LSBFIRST,myInfo);
+  digitalWrite(latch,HIGH);
+  myInfo = '\0';
+}
+}
